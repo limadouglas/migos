@@ -7,5 +7,22 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block (click)="novoEvento()">Novo evento</button>
+
+  <ion-content class="card-background-page">
+
+    <ion-card>
+      <img id ="img-evento" src="https://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png"/>
+        <div class="card-title">São Paulo</div>
+        <div class="card-subtitle">41 Listings</div>
+
+    </ion-card>
+    <div text-center>    
+      <button ion-button  (click)="proximoEvento()" float-start><ion-icon name="arrow-dropleft"></ion-icon></button>
+      <button ion-button  (click)="infoEvento()"  id="info" margin-horizontal>Informações</button>
+      <button ion-button  (click)="anteriorEvento()" float-end><ion-icon name="arrow-dropright"></ion-icon></button>
+    </div>
+
+  </ion-content>
+
+
 </ion-content>

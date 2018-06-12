@@ -1,3 +1,4 @@
+import { HomePage } from './../pages/home/home';
 import { CadastroEventoPage } from './../pages/cadastro-evento/cadastro-evento';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
@@ -10,7 +11,7 @@ import { LoginPage } from './../pages/login/login';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

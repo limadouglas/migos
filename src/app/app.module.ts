@@ -14,6 +14,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { UserProvider } from '../providers/user/user';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
+import { InfoEventoPage } from '../pages/info-evento/info-evento';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyCYMwMy5mJ0W-wIvzh1Vzt6g8XZq6PfdCw",
@@ -28,7 +30,9 @@ const firebaseAppConfig: FirebaseAppConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    CadastroEventoPage
+    CadastroEventoPage,
+    ConfiguracaoPage,
+    InfoEventoPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ const firebaseAppConfig: FirebaseAppConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    CadastroEventoPage
+    CadastroEventoPage,
+    ConfiguracaoPage,
+    InfoEventoPage
   ],
   providers: [
     StatusBar,
