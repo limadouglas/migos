@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <button ion-button item-end icon-left color="primary" (click)="entrarFB()" *ngIf="!facebook.loggedIn">
+      <ion-icon name="logo-facebook"></ion-icon>
+      Entrar com facebook
+    </button>
+  </ion-row>
+  <ion-row>
+    <button ion-button item-end icon-left (click)="sairFB()"><ion-icon name="exit"></ion-icon>Deslogar</button>
+  </ion-row>
+</ion-content>
