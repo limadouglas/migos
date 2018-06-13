@@ -14,12 +14,12 @@ export class EventoProvider {
   }
 
   // cria um evento
-  create(evento: Evento): Promise<boolean> {
+  create(evento: Evento): Promise<number> {
     console.log(JSON.stringify(evento));
-
-    return this.db.object(`/eventos/${Date.now()}`).set(evento)
-    .then(()=>{return true;})
-      .catch(()=>{return false});
+    let idEvento = Date.now();
+    return this.db.object(`/eventos/${idEvento}`).set(evento)
+    .then(()=>{return idEvento;})
+      .catch(()=>{return -1});
   }
 
   // retorna todos os eventos

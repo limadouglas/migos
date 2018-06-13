@@ -5,7 +5,7 @@ import { AlertController, NavController, NavParams, Loading, LoadingController }
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserProvider } from './../../providers/user/user';
 import { HomePage } from '../home/home';
-//import * as firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'page-cadastro-evento',
@@ -46,11 +46,15 @@ export class CadastroEventoPage {
    // let participantes : string[] = [this.userProvider.getId()];
     let evento = new Evento(formEvento.titulo, formEvento.descricao, formEvento.local, formEvento.qtde_participantes, formEvento.data, formEvento.horario, JSON.parse(`{"${this.userProvider.getId()}" : "true"}`));
     this.eventoProvider.create(evento)
-      .then(() => {
+      .then((idEvento: number) => {
 
-        let uploadTask = this.eventoProvider.uploadFoto(this.fileFoto, this.userProvider.getId());
-        console.log('evento cadastrado!');
+        let uploadTask = this.eventoProvider.uploadFoto(this.fileFoto, idEvento.toString());
+        uploadTask.then((UploadTaskSnapshot: firebase.storage.UploadTaskSnapshot) => {
+          loading.dismiss();
+          console.log('evento cadastrado!');
           this.navCtrl.setRoot(HomePage);
+        });
+        
         /*
         uploadTask.on('state_changed', (snapshot: firebase.storage.UploadTaskSnapshot) => {
           //this.uploadProgress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
