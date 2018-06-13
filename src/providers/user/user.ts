@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-//import { Http } from '@angular/http';
+import { FirebaseApp } from "angularfire2";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireDatabase, AngularFireObject } from "angularfire2/database";
 import { User } from './../../models/user.model';
 import * as firebase from 'firebase/app';
-
 
 @Injectable()
 export class UserProvider {
@@ -13,7 +12,7 @@ export class UserProvider {
   currentUser: AngularFireObject<User>;
   userId: string;
 
-  constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth,) {
+  constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth) {
     this.listenAuthState();
   }
 
@@ -41,5 +40,8 @@ export class UserProvider {
   create(user: User, uuid: string): Promise<void> {
     return this.db.object(`/usuarios/${uuid}`).set(user);
   }
+
+
+
 
 }

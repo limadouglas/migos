@@ -38,14 +38,18 @@
 
     <ion-item>
   
-      <ion-input type="text" placeholder="Data" formControlName="data" text-center></ion-input>
+      <ion-input type="date" placeholder="Data" formControlName="data" text-center></ion-input>
     </ion-item>
 
     <ion-item>
    
-      <ion-input type="text" placeholder="Horário" formControlName="horario" text-center></ion-input>
+      <ion-input type="time" placeholder="Horário" formControlName="horario" text-center></ion-input>
     </ion-item>
- 
+
+    <ion-item>
+      <ion-icon name="image" item-start></ion-icon>
+      <input type="file" accept="image/*" (change)="onFoto($event)" >
+    </ion-item>
     <br>
     <button ion-button full type="submit" [disabled]="eventoForm.invalid">Criar Evento</button>
 
