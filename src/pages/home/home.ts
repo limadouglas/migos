@@ -1,7 +1,8 @@
-import { CadastroEventoPage } from './../cadastro-evento/cadastro-evento';
+import { Evento } from './../../models/evento.model';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { InfoEventoPage } from '../info-evento/info-evento';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
@@ -9,6 +10,8 @@ import { InfoEventoPage } from '../info-evento/info-evento';
 })
 
 export class HomePage {
+
+  chats: Observable<Evento[]>;
 
   constructor(public navCtrl: NavController) {
 

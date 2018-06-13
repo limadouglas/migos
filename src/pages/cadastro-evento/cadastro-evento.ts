@@ -1,5 +1,7 @@
+import { Evento } from './../../models/evento.model';
+import { EventoProvider } from './../../providers/evento/evento';
 import { Component } from '@angular/core';
-import { AlertController, Loading, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserProvider } from './../../providers/user/user';
 import { HomePage } from '../home/home';
@@ -19,9 +21,8 @@ export class CadastroEventoPage {
     public navParams: NavParams, 
     public formBuilder: FormBuilder,
     public userProvider: UserProvider,
-    public loadingCtrl: LoadingController
+    public eventoProvider: EventoProvider
   ) {
-
     this.eventoForm = this.formBuilder.group({
       titulo: ['', [Validators.required, Validators.minLength(1)]],
       descricao: ['', [Validators.required, Validators.minLength(5)]],
@@ -38,32 +39,18 @@ export class CadastroEventoPage {
   }
 
   cadastrar(): void {
-
-   // let loading: Loading = this.showLoading();
     let formEvento = this.eventoForm.value;
-
-    this.userProvider.createEvent(formEvento)
+   // let participantes : string[] = [this.userProvider.getId()];
+    let evento = new Evento(formEvento.titulo, formEvento.descricao, formEvento.local, formEvento.qtde_participantes, formEvento.data, formEvento.horario, JSON.parse(`{"${this.userProvider.getId()}" : "true"}`));
+    this.eventoProvider.create(evento)
       .then(() => {
         console.log('evento cadastrado!');
         this.navCtrl.setRoot(HomePage);
-   //     loading.dismiss();
-        this.showAlert('Evento Cadastrado');
       }).catch((error: any) => {
         console.log(error);
-   //     loading.dismiss();
         this.showAlert(error);
       });
 
-  }
-
-  private showLoading(): Loading {
-    let loading: Loading = this.loadingCtrl.create({
-      content: 'cadastrando...'
-    });
-
-    loading.present();
-
-    return loading;
   }
 
   private showAlert(message: string): void {

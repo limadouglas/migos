@@ -16,6 +16,7 @@ import { UserProvider } from '../providers/user/user';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 import { InfoEventoPage } from '../pages/info-evento/info-evento';
+import { EventoProvider } from '../providers/evento/evento';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyCYMwMy5mJ0W-wIvzh1Vzt6g8XZq6PfdCw",
@@ -54,7 +55,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    EventoProvider
   ]
 })
 export class AppModule {}

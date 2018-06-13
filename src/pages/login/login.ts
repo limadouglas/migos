@@ -1,11 +1,12 @@
+import { CadastroEventoPage } from './../cadastro-evento/cadastro-evento';
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, Loading, AlertController} from 'ionic-angular';
+import { NavController, NavParams, AlertController} from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 
 import { User } from './../../models/user.model';
 import { UserProvider } from '../../providers/user/user';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-login',
@@ -28,8 +29,7 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private afauth: AngularFireAuth,
-    public userProvider: UserProvider,
-    public loadingCtrl: LoadingController,
+    public userProvider: UserProvider
   ) {}
 
 
@@ -50,7 +50,7 @@ export class LoginPage {
           .then(()=>{
             console.log('logado com sucesso!!');
            // loading.dismiss();
-            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.setRoot(CadastroEventoPage);
           }).catch((error: any) => {
             console.log(error);
          //   loading.dismiss();
@@ -65,15 +65,6 @@ export class LoginPage {
       this.afauth.auth.signOut();
    }
 
-   private showLoading(): Loading {
-    let loading: Loading = this.loadingCtrl.create({
-      content: 'Logando...'
-    });
-
-    loading.present();
-
-    return loading;
-  }
 
   private showAlert(message: string): void {
     this.alertCtrl.create({

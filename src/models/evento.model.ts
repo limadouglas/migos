@@ -6,7 +6,8 @@ export class Evento{
       public local: string,
       public qtde_participantes: string,
       public data: string,
-      public horario: string
+      public horario: string,
+      public participantes: JSON
     ){}
     
   }
