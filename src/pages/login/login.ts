@@ -1,6 +1,7 @@
+import { HomePage } from './../home/home';
 import { CadastroEventoPage } from './../cadastro-evento/cadastro-evento';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController} from 'ionic-angular';
+import { NavController, NavParams, AlertController, MenuController} from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 
@@ -29,8 +30,11 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private afauth: AngularFireAuth,
-    public userProvider: UserProvider
-  ) {}
+    public userProvider: UserProvider,
+    public menuCtrl: MenuController
+  ) {
+    this.menuCtrl.enable(false);
+  }
 
 
 
@@ -47,10 +51,11 @@ export class LoginPage {
         console.log('info: ', res.user);
 
         this.userProvider.create(user, res.user.uid)
-          .then(()=>{
+          .then(() => {
             console.log('logado com sucesso!!');
            // loading.dismiss();
-            this.navCtrl.setRoot(CadastroEventoPage);
+           this.menuCtrl.enable(true);
+            this.navCtrl.setRoot(HomePage);
           }).catch((error: any) => {
             console.log(error);
          //   loading.dismiss();

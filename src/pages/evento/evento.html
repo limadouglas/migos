@@ -1,5 +1,5 @@
 <!--
-  Generated template for the ConfiguracaoPage page.
+  Generated template for the EventoPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -10,7 +10,11 @@
     <button ion-button icon-only menuToggle start>
         <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>configuração</ion-title>
+
+    <button ion-button icon-only end menuToggle (click)="novoEvento()">
+        <ion-icon name="add-circle"></ion-icon>
+    </button>
+    <ion-title>Eventos</ion-title>
   </ion-navbar>
 
 </ion-header>

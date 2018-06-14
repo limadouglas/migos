@@ -1,3 +1,4 @@
+import { EventoPage } from './../pages/evento/evento';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -17,6 +18,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 import { InfoEventoPage } from '../pages/info-evento/info-evento';
 import { EventoProvider } from '../providers/evento/evento';
+import { UserMenuComponent } from '../components/user-menu/user-menu';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyCYMwMy5mJ0W-wIvzh1Vzt6g8XZq6PfdCw",
@@ -33,7 +35,9 @@ const firebaseAppConfig: FirebaseAppConfig = {
     LoginPage,
     CadastroEventoPage,
     ConfiguracaoPage,
-    InfoEventoPage
+    InfoEventoPage,
+    UserMenuComponent,
+    EventoPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     LoginPage,
     CadastroEventoPage,
     ConfiguracaoPage,
-    InfoEventoPage
+    InfoEventoPage,
+    EventoPage
   ],
   providers: [
     StatusBar,
