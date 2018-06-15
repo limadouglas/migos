@@ -21,5 +21,7 @@
 
 
 <ion-content padding>
-
+      <button ion-item *ngFor="let item of eventos" (click)="onEvento(item)">
+          <h2>{{ item.titulo }}</h2>
+        </button>
 </ion-content>

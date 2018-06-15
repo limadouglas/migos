@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { FirebaseApp } from "angularfire2";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireDatabase, AngularFireObject } from "angularfire2/database";
 import { User } from './../../models/user.model';
@@ -25,6 +24,12 @@ export class UserProvider {
           this.userId = (authUser.uid).toString(); 
         }
       });
+  }
+
+  participar(idEvento: string): any{
+    let part = {[this.getId()]: false};
+    console.log(part);
+    this.db.object(`/eventos/${idEvento}/participantes`).set(part);
   }
 
 

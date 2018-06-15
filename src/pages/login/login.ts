@@ -1,5 +1,3 @@
-import { HomePage } from './../home/home';
-import { CadastroEventoPage } from './../cadastro-evento/cadastro-evento';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, MenuController} from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -7,7 +5,7 @@ import firebase from 'firebase';
 
 import { User } from './../../models/user.model';
 import { UserProvider } from '../../providers/user/user';
-//import { HomePage } from '../home/home';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-login',
