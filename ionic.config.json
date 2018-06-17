@@ -1,0 +1,8 @@
+{
+  "name": "Migos",
+  "app_id": "3289e4d2",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

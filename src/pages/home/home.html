@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button icon-only menuToggle start>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>
+      Eventos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-content class="card-background-page">
+
+  
+    <ion-card>
+      <img id ="img-evento" [src]="imagem"/>
+        <div class="card-title">{{evento.titulo}}</div>
+    </ion-card>
+
+    <div text-center>    
+      <button ion-button  (click)="anteriorEvento()" float-start><ion-icon name="arrow-dropleft"></ion-icon></button>
+      <button ion-button  (click)="infoEvento()"  id="info" margin-horizontal>Informações</button>
+      <button ion-button  (click)="proximoEvento()" float-end><ion-icon name="arrow-dropright"></ion-icon></button>
+    </div>
+
+  </ion-content>
+
+
+</ion-content>

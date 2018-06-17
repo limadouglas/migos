@@ -1,0 +1,61 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle start>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Novo Evento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h1 text-center>
+    <ion-icon class="auth-icon" name="people" color="primary"></ion-icon>
+  </h1>
+
+  <form [formGroup]="eventoForm" (ngSubmit)="cadastrar(); $event.preventDefault()"> 
+
+    <ion-item>
+
+      <ion-input type="text" placeholder="Título" formControlName="titulo" text-center></ion-input>
+    </ion-item>
+
+    <ion-item>
+   
+      <ion-input type="text" placeholder="Descrição" formControlName="descricao" text-center></ion-input>
+    </ion-item>
+
+    <ion-item>
+ 
+      <ion-input type="text" placeholder="Local" formControlName="local" text-center></ion-input>
+    </ion-item>
+
+    <ion-item>
+     
+      <ion-input type="number" placeholder="Qtde participantes" formControlName="qtde_participantes" text-center></ion-input>
+    </ion-item>
+
+    <ion-item>
+  
+      <ion-input type="date" placeholder="Data" formControlName="data" text-center></ion-input>
+    </ion-item>
+
+    <ion-item>
+   
+      <ion-input type="time" placeholder="Horário" formControlName="horario" text-center></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="image" item-start></ion-icon>
+      <input type="file" accept="image/*" (change)="onFoto($event)" >
+    </ion-item>
+    <br>
+    <button ion-button full type="submit" [disabled]="eventoForm.invalid">Criar Evento</button>
+
+  </form>
+
+</ion-content>

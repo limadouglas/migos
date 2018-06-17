@@ -1,0 +1,27 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Informações eventos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-content class="card-background-page">
+
+        <ion-card>
+          <img id ="img-evento" [src]="imagem"/>
+          <div class="card-title">{{evento.titulo}}</div>
+          <div class="card-subtitle" id="descricao">{{evento.descricao}}</div>
+          <div class="card-subtitle" id="local">{{evento.local}}</div>
+          <div class="card-subtitle" id="datahora">{{evento.data}} ás {{evento.horario}} horas</div>
+          <div class="card-subtitle" id="participantes">{{evento.qtde_participantes}} participantes</div>
+        </ion-card>
+        <div text-center>    
+          <button ion-button block (click)="participar()">Participar</button>
+        </div>
+    
+      </ion-content>
+</ion-content>
