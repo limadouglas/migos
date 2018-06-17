@@ -9,7 +9,7 @@ import { ChatService } from './../../providers/chat.service';
 import { Message } from './../../models/message.model';
 import { MessageService } from './../../providers/message.service';
 import { User } from './../../models/user.model';
-import { UserService } from './../../providers/user';
+
 
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';

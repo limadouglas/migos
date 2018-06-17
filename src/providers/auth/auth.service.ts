@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 import { AngularFireAuth } from "angularfire2/auth";
 
-import { BaseService } from "./base.service";
+import { BaseService } from '../providers/base/base.service';
 
 import * as firebase from 'firebase/app';
 

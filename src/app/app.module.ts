@@ -17,12 +17,13 @@ import { UserProvider } from '../providers/user/user';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 import { InfoEventoPage } from '../pages/info-evento/info-evento';
-import { EventoProvider } from '../providers/evento/evento';
+import { EventoProvider }  from '../providers/evento/evento';
 import { UserMenuComponent } from '../components/user-menu/user-menu';
 import { ChatPage } from '../pages/chat/chat';
+
 import { ChatProvider } from '../providers/chat/chat.service';
-import { AuthProvider } from '../providers/auth/auth.service';
-import { BaseProvider } from '../providers/base/base.service';
+import { AuthService } from '../providers/auth/auth.service';
+import { MessageService } from '../providers/message/message.service';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyCYMwMy5mJ0W-wIvzh1Vzt6g8XZq6PfdCw",
@@ -69,8 +70,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     UserProvider,
     EventoProvider,
     ChatProvider,
-    AuthProvider,
-    BaseProvider
+    AuthService,
+    MessageService
   ]
 })
 export class AppModule {}
