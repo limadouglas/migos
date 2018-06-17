@@ -21,9 +21,10 @@ import { EventoProvider }  from '../providers/evento/evento';
 import { UserMenuComponent } from '../components/user-menu/user-menu';
 import { ChatPage } from '../pages/chat/chat';
 
-import { ChatProvider } from '../providers/chat/chat.service';
+
 import { AuthService } from '../providers/auth/auth.service';
 import { MessageService } from '../providers/message/message.service';
+import { ChatService } from '../providers/chat/chat.service';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyCYMwMy5mJ0W-wIvzh1Vzt6g8XZq6PfdCw",
@@ -69,7 +70,7 @@ const firebaseAppConfig: FirebaseAppConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     EventoProvider,
-    ChatProvider,
+    ChatService,
     AuthService,
     MessageService
   ]

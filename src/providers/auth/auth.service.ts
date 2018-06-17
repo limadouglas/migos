@@ -5,9 +5,8 @@ import 'rxjs/add/operator/map';
 
 import { AngularFireAuth } from "angularfire2/auth";
 
-import { BaseService } from '../providers/base/base.service';
-
 import * as firebase from 'firebase/app';
+import { BaseService } from '../base/base.service';
 
 @Injectable()
 export class AuthService extends BaseService {
@@ -18,18 +17,6 @@ export class AuthService extends BaseService {
   ) {
     super();
     console.log('Hello Auth Provider');
-  }
-
-  createAuthUser(user: {email: string, password: string}): Promise<firebase.User> {
-    return this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
-      .catch(this.handlePromiseError);
-  }
-
-  signinWithEmail(user: {email: string, password: string}): Promise<boolean> {
-    return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
-      .then((authUser: firebase.User) => {
-          return authUser != null;
-      }).catch(this.handlePromiseError);
   }
 
   logout(): Promise<any> {

@@ -3,16 +3,17 @@ import { Content, NavController, NavParams } from 'ionic-angular';
 
 import { AngularFireList, AngularFireObject } from 'angularfire2/database';
 
-import { AuthService } from './../../providers/auth.service';
 import { Chat } from './../../models/chat.model';
-import { ChatService } from './../../providers/chat.service';
 import { Message } from './../../models/message.model';
-import { MessageService } from './../../providers/message.service';
 import { User } from './../../models/user.model';
-
 
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+
+import { AuthService } from '../../providers/auth/auth.service';
+import { MessageService } from '../../providers/message/message.service';
+import { UserProvider } from '../../providers/user/user';
+import { ChatService } from '../../providers/chat/chat.service';
 
 @Component({
   selector: 'page-chat',
@@ -35,7 +36,7 @@ export class ChatPage {
     public messageService: MessageService,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public userService: UserService
+    public userService: UserProvider
   ) {
   }
 
@@ -46,7 +47,7 @@ export class ChatPage {
   ionViewDidLoad() {
 
     this.recipient = this.navParams.get('recipientUser');
-    this.pageTitle = this.recipient.name;
+    this.pageTitle = this.recipient.nome;
 
     this.userService
       .mapObjectKey<User>(this.userService.currentUser)
@@ -57,14 +58,6 @@ export class ChatPage {
         this.chat1 = this.chatService.getDeepChat(this.sender.$key, this.recipient.$key);
         this.chat2 = this.chatService.getDeepChat(this.recipient.$key, this.sender.$key);
 
-        if (this.recipient.photo) {
-          this.chatService
-            .mapObjectKey(this.chat1)
-            .first()
-            .subscribe((chat: Chat) => {
-              this.chatService.updatePhoto(this.chat1, chat.photo, this.recipient.photo);
-            });
-        }
 
         let doSubscription = () => {
           this.viewMessages = this.messageService.mapListKeys<Message>(this.messages);
