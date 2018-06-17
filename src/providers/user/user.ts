@@ -13,6 +13,7 @@ export class UserProvider {
 
   constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth) {
     this.listenAuthState();
+
   }
 
   private listenAuthState(): void {
@@ -21,7 +22,7 @@ export class UserProvider {
       .subscribe((authUser: firebase.User) => {
         if (authUser) {
           this.currentUser = this.db.object(`/usuarios/${authUser.uid}`);
-          this.userId = (authUser.uid).toString(); 
+          this.userId = (authUser.uid).toString();
         }
       });
   }
