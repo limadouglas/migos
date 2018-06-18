@@ -27,7 +27,7 @@ export class EventoPage {
   }
 
   onEvento(item: any){
-    this.navCtrl.push(ChatPage, {'titulo': 'item.titulo', 'idEvento': 'item.idEvento'});
+    this.navCtrl.push(ChatPage, {'titulo': 'tituloT', 'idEvento': '1529020702023'});
     console.log('abrirchat');
     console.log(item);
   }
