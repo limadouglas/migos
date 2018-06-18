@@ -25,6 +25,10 @@ import { ChatPage } from '../pages/chat/chat';
 import { AuthService } from '../providers/auth/auth.service';
 import { MessageService } from '../providers/message/message.service';
 import { ChatService } from '../providers/chat/chat.service';
+import { CustomLoggedHeaderComponent } from '../components/custom-logged-header/custom-logged-header.component';
+import { MessageBoxComponent } from '../components/message-box/message-box.component';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar.component';
+import { UserInfoComponent } from '../components/user-info/user-info.component';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyCYMwMy5mJ0W-wIvzh1Vzt6g8XZq6PfdCw",
@@ -44,7 +48,11 @@ const firebaseAppConfig: FirebaseAppConfig = {
     ConfiguracaoPage,
     InfoEventoPage,
     UserMenuComponent,
-    EventoPage
+    EventoPage,
+    CustomLoggedHeaderComponent,
+    MessageBoxComponent,
+    ProgressBarComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

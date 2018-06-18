@@ -1,5 +1,6 @@
 import { OnInit } from "@angular/core";
 import { App, AlertController, MenuController, NavController } from 'ionic-angular';
+import { AuthService } from "../providers/auth/auth.service";
 
 
 export abstract class BaseComponent implements OnInit {
@@ -15,27 +16,6 @@ export abstract class BaseComponent implements OnInit {
     ngOnInit(): void {
         this.navCtrl = this.app.getActiveNavs()[0];
     }
-    /*
-    onLogout(): void {
-        this.alertCtrl.create({
-            message: 'Do you want to quit?',
-            buttons: [
-                {
-                    text: 'Yes',
-                    handler: () => {
-                        this.authService.logout()
-                            .then(() => {
-                                this.navCtrl.setRoot(LoginPage);
-                                this.menuCtrl.enable(false, 'user-menu');
-                            });
-                    }
-                },
-                {
-                    text: 'No'
-                }
-            ]
-        }).present();
-    }
-    */
+
 
 }

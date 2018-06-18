@@ -10,9 +10,9 @@ import { User } from './../../models/user.model';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
+import { UserProvider } from './../../providers/user/user';
 import { AuthService } from '../../providers/auth/auth.service';
 import { MessageService } from '../../providers/message/message.service';
-import { UserProvider } from '../../providers/user/user';
 import { ChatService } from '../../providers/chat/chat.service';
 
 @Component({
@@ -27,8 +27,9 @@ export class ChatPage {
   pageTitle: string;
   sender: User;
   recipient: User;
+  eventoId: string;
   private chat1: AngularFireObject<Chat>;
-  private chat2: AngularFireObject<Chat>;
+
 
   constructor(
     public authService: AuthService,
@@ -40,14 +41,26 @@ export class ChatPage {
   ) {
   }
 
-  ionViewCanEnter(): Promise<boolean> {
-    return this.authService.authenticated;
-  }
 
   ionViewDidLoad() {
+    console.log(this.navParams);
+    this.pageTitle = this.navParams.get('titulo');
+    this.eventoId = this.navParams.get('idEvento');
+   
 
-    this.recipient = this.navParams.get('recipientUser');
-    this.pageTitle = this.recipient.nome;
+    this.chat1 = this.chatService.getDeepChat(this.eventoId);
+
+    this.viewMessages = this.messageService.mapListKeys<Message>(this.messages);
+    this.viewMessages
+      .subscribe((messages: Message[]) => {
+        this.scrollToBottom();
+      });
+    //let doSubscription = () => {
+
+    //};
+
+    this.messages = this.messageService
+      .getMessages(this.eventoId);
 
     this.userService
       .mapObjectKey<User>(this.userService.currentUser)
@@ -55,21 +68,9 @@ export class ChatPage {
       .subscribe((currentUser: User) => {
         this.sender = currentUser;
 
-        this.chat1 = this.chatService.getDeepChat(this.sender.$key, this.recipient.$key);
-        this.chat2 = this.chatService.getDeepChat(this.recipient.$key, this.sender.$key);
 
 
-        let doSubscription = () => {
-          this.viewMessages = this.messageService.mapListKeys<Message>(this.messages);
-          this.viewMessages
-            .subscribe((messages: Message[]) => {
-              this.scrollToBottom();
-            });
-        };
-
-        this.messages = this.messageService
-          .getMessages(this.sender.$key, this.recipient.$key);
-
+     
         this.messages
           .valueChanges()
           .first()
@@ -78,7 +79,7 @@ export class ChatPage {
             if (messages.length === 0) {
 
               this.messages = this.messageService
-                .getMessages(this.recipient.$key, this.sender.$key);
+                .getMessages(this.eventoId);
 
               doSubscription();
 
@@ -87,8 +88,10 @@ export class ChatPage {
             }
 
           });
+         
 
       });
+       
 
   }
 
@@ -100,25 +103,14 @@ export class ChatPage {
 
       this.messageService.create(
         new Message(
-          this.sender.$key,
+          this.eventoId,
           newMessage,
           currentTimestamp
         ),
         this.messages
       ).then(() => {
 
-        this.chat1
-          .update({
-            lastMessage: newMessage,
-            timestamp: currentTimestamp
-          });
-
-        this.chat2
-          .update({
-            lastMessage: newMessage,
-            timestamp: currentTimestamp
-          });
-
+        console.log('msg enviada');
 
       });
 

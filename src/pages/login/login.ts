@@ -22,12 +22,11 @@ export class LoginPage {
   }
 
 
-
   constructor(
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
-    private afauth: AngularFireAuth,
+    public afauth: AngularFireAuth,
     public userProvider: UserProvider,
     public menuCtrl: MenuController
   ) {
@@ -37,8 +36,7 @@ export class LoginPage {
 
 
   entrarFB = function() {
-   // let loading: Loading = this.showLoading();
-   this.showAlert('evento click!');
+    
     this.afauth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then((res) => {
 
@@ -70,7 +68,7 @@ export class LoginPage {
    }
 
 
-  private showAlert(message: string): void {
+  public showAlert(message: string): void {
     this.alertCtrl.create({
       message: message,
       buttons: ['Ok']

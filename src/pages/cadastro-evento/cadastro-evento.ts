@@ -39,9 +39,6 @@ export class CadastroEventoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroEventoPage');
-    setTimeout(() => {
-      this.menuCtrl.close();
-    }, 600);
   }
 
   cadastrar(): void {
@@ -59,17 +56,6 @@ export class CadastroEventoPage {
           this.navCtrl.setRoot(HomePage);
         });
         
-        /*
-        uploadTask.on('state_changed', (snapshot: firebase.storage.UploadTaskSnapshot) => {
-          //this.uploadProgress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        }, (error: Error) => {
-          // catch error
-          loading.dismiss();
-        }, () => {
-          loading.dismiss();
-          
-        });
-      */
       }).catch((error: any) => {
         loading.dismiss();
         console.log(error);
@@ -91,6 +77,7 @@ export class CadastroEventoPage {
 
     return loading;
   }
+  
   private showAlert(message: string): void {
     this.alertCtrl.create({
       message: message,

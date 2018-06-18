@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/map';
 
@@ -12,8 +11,7 @@ import { BaseService } from '../base/base.service';
 export class AuthService extends BaseService {
 
   constructor(
-    public afAuth: AngularFireAuth,
-    public http: Http
+    public afAuth: AngularFireAuth
   ) {
     super();
     console.log('Hello Auth Provider');

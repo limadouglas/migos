@@ -1,3 +1,4 @@
+import { ChatPage } from './../chat/chat';
 import { UserProvider } from './../../providers/user/user';
 import { EventoProvider } from './../../providers/evento/evento';
 import { CadastroEventoPage } from './../cadastro-evento/cadastro-evento';
@@ -26,6 +27,7 @@ export class EventoPage {
   }
 
   onEvento(item: any){
+    this.navCtrl.push(ChatPage, {'titulo': 'item.titulo', 'idEvento': 'item.idEvento'});
     console.log('abrirchat');
     console.log(item);
   }
