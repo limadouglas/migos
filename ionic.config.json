@@ -1,6 +1,10 @@
 {
   "name": "Migos",
+<<<<<<< HEAD
   "app_id": "",
+=======
+  "app_id": "3289e4d2",
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

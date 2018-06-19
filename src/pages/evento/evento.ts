@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { ChatPage } from './../chat/chat';
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
 import { UserProvider } from './../../providers/user/user';
 import { EventoProvider } from './../../providers/evento/evento';
 import { CadastroEventoPage } from './../cadastro-evento/cadastro-evento';
@@ -18,7 +22,11 @@ export class EventoPage {
     public eventoProvider: EventoProvider,
     public userProvider:UserProvider
   ) {
+<<<<<<< HEAD
     console.log(this.userProvider.getId());
+=======
+    
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     setTimeout(() => {
       this.eventos = this.eventoProvider.meusEventos(this.userProvider.getId());
     }, 600);
@@ -26,6 +34,10 @@ export class EventoPage {
   }
 
   onEvento(item: any){
+<<<<<<< HEAD
+=======
+    this.navCtrl.push(ChatPage, {'titulo': 'tituloT', 'idEvento': '1529020702023'});
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     console.log('abrirchat');
     console.log(item);
   }

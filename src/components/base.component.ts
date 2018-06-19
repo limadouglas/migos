@@ -1,9 +1,15 @@
 import { OnInit } from "@angular/core";
+<<<<<<< HEAD
 
 import { App, AlertController, MenuController, NavController } from 'ionic-angular';
 
 //import { AuthService } from './../providers/auth.service';
 import { LoginPage } from './../pages/login/login';
+=======
+import { App, AlertController, MenuController, NavController } from 'ionic-angular';
+import { AuthService } from "../providers/auth/auth.service";
+
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
 
 export abstract class BaseComponent implements OnInit {
 
@@ -11,7 +17,10 @@ export abstract class BaseComponent implements OnInit {
 
     constructor(
         public alertCtrl: AlertController,
+<<<<<<< HEAD
         //public authService: AuthService,
+=======
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
         public app: App,
         public menuCtrl: MenuController
     ) {}
@@ -19,6 +28,7 @@ export abstract class BaseComponent implements OnInit {
     ngOnInit(): void {
         this.navCtrl = this.app.getActiveNavs()[0];
     }
+<<<<<<< HEAD
     /*
     onLogout(): void {
         this.alertCtrl.create({
@@ -41,5 +51,8 @@ export abstract class BaseComponent implements OnInit {
         }).present();
     }
     */
+=======
+
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
 
 }

@@ -17,8 +17,23 @@ import { UserProvider } from '../providers/user/user';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 import { InfoEventoPage } from '../pages/info-evento/info-evento';
+<<<<<<< HEAD
 import { EventoProvider } from '../providers/evento/evento';
 import { UserMenuComponent } from '../components/user-menu/user-menu';
+=======
+import { EventoProvider }  from '../providers/evento/evento';
+import { UserMenuComponent } from '../components/user-menu/user-menu';
+import { ChatPage } from '../pages/chat/chat';
+
+
+import { AuthService } from '../providers/auth/auth.service';
+import { MessageService } from '../providers/message/message.service';
+import { ChatService } from '../providers/chat/chat.service';
+import { CustomLoggedHeaderComponent } from '../components/custom-logged-header/custom-logged-header.component';
+import { MessageBoxComponent } from '../components/message-box/message-box.component';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar.component';
+import { UserInfoComponent } from '../components/user-info/user-info.component';
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyCYMwMy5mJ0W-wIvzh1Vzt6g8XZq6PfdCw",
@@ -33,11 +48,23 @@ const firebaseAppConfig: FirebaseAppConfig = {
     MyApp,
     HomePage,
     LoginPage,
+<<<<<<< HEAD
+=======
+    ChatPage,
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     CadastroEventoPage,
     ConfiguracaoPage,
     InfoEventoPage,
     UserMenuComponent,
+<<<<<<< HEAD
     EventoPage
+=======
+    EventoPage,
+    CustomLoggedHeaderComponent,
+    MessageBoxComponent,
+    ProgressBarComponent,
+    UserInfoComponent
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   ],
   imports: [
     BrowserModule,
@@ -51,6 +78,10 @@ const firebaseAppConfig: FirebaseAppConfig = {
     MyApp,
     HomePage,
     LoginPage,
+<<<<<<< HEAD
+=======
+    ChatPage,
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     CadastroEventoPage,
     ConfiguracaoPage,
     InfoEventoPage,
@@ -61,7 +92,14 @@ const firebaseAppConfig: FirebaseAppConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+<<<<<<< HEAD
     EventoProvider
+=======
+    EventoProvider,
+    ChatService,
+    AuthService,
+    MessageService
+>>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   ]
 })
 export class AppModule {}
