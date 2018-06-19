@@ -18,18 +18,12 @@ export class EventoProvider {
     public firebaseApp: FirebaseApp,
     
   ) {
-<<<<<<< HEAD
-    console.log('eventoprovidercriado');
-    this.indiceEvento = -1;
-    this.getEventos();
-=======
     console.log('novo evento provider!');
     this.indiceEvento = -1;
     setTimeout(() => {
       this.getEventos();
     }, 200);
     
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   }
 
   // cria um evento

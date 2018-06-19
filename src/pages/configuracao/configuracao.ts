@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-=======
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { AlertController, NavController, NavParams, Loading, LoadingController, MenuController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserProvider } from './../../providers/user/user';
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
 
 @Component({
   selector: 'page-configuracao',
@@ -16,9 +10,6 @@ import { UserProvider } from './../../providers/user/user';
 })
 export class ConfiguracaoPage {
 
-<<<<<<< HEAD
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-=======
   usuarioForm: FormGroup;
 
   constructor(
@@ -35,13 +26,10 @@ export class ConfiguracaoPage {
       sobrenome: ['', [Validators.required, Validators.minLength(2)]]
     });
 
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConfiguracaoPage');
-<<<<<<< HEAD
-=======
     setTimeout(() => {
       this.menuCtrl.close();
     }, 600);
@@ -89,7 +77,6 @@ export class ConfiguracaoPage {
 
   private capitalize(s: string): string{
     return s.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   }
 
 }

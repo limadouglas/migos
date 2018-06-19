@@ -22,19 +22,11 @@ export class LoginPage {
   }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   constructor(
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams,
-<<<<<<< HEAD
-    private afauth: AngularFireAuth,
-=======
     public afauth: AngularFireAuth,
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     public userProvider: UserProvider,
     public menuCtrl: MenuController
   ) {
@@ -43,13 +35,8 @@ export class LoginPage {
 
 
 
-<<<<<<< HEAD
-  entrarFB() {
-   // let loading: Loading = this.showLoading();
-=======
   entrarFB = function() {
     
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     this.afauth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then((res) => {
 
@@ -75,21 +62,13 @@ export class LoginPage {
 
    }
 
-<<<<<<< HEAD
-   sairFB() {
-=======
    sairFB = function() {
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
       this.facebook.loggedIn = false;
       this.afauth.auth.signOut();
    }
 
 
-<<<<<<< HEAD
-  private showAlert(message: string): void {
-=======
   public showAlert(message: string): void {
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     this.alertCtrl.create({
       message: message,
       buttons: ['Ok']

@@ -18,8 +18,7 @@ export class MessageService extends BaseService {
   }
 
   create(message: Message, listMessages: AngularFireList<Message>): Promise<void> {
-    let msg = JSON.parse(`{${message.timestamp}: {'msg': ${message.text}}}`);
-    return Promise.resolve(listMessages.push(msg));
+    return Promise.resolve(listMessages.push(message));
   }
 
   getMessages(eventoId: string): AngularFireList<Message> {

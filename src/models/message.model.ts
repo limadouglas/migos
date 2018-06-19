@@ -1,7 +1,7 @@
 export class Message {
 
   constructor(
-      public userId: string,
+      public eventoId: string,
       public text: string,
       public timestamp: any
   ) {}

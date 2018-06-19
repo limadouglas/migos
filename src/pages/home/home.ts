@@ -21,11 +21,7 @@ export class HomePage {
     this.indiceEvento = 0;
     setTimeout(() => {
       this.proximoEvento();
-<<<<<<< HEAD
-    }, 700);
-=======
     }, 800);
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     
   }
 

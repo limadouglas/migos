@@ -1,12 +1,7 @@
-import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators/map';
-
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, AngularFireList, AngularFireObject, AngularFireAction, DatabaseSnapshot } from 'angularfire2/database';
-
-
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs/Observable';
 import { BaseService } from '../base/base.service';
 import { Chat } from '../../models/chat.model';
 
@@ -16,8 +11,8 @@ export class ChatService extends BaseService {
   chats: AngularFireList<Chat>;
 
   constructor(
-    public afAuth: AngularFireAuth,
-    public db: AngularFireDatabase
+    public db: AngularFireDatabase,
+    public afAuth: AngularFireAuth
   ) {
     super();
     this.setChats();
@@ -43,6 +38,7 @@ export class ChatService extends BaseService {
   }
 
   getDeepChat(eventoId: string): AngularFireObject<Chat> {
+    console.log(eventoId);
     return this.db.object<Chat>(`/eventos/${eventoId}`);
   }
 

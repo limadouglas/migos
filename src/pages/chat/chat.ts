@@ -25,9 +25,8 @@ export class ChatPage {
   messages: AngularFireList<Message>;
   viewMessages: Observable<Message[]>;
   pageTitle: string;
-  sender: User;
   recipient: User;
-  eventoId: string;
+  public eventoId: string;
   private chat1: AngularFireObject<Chat>;
 
 
@@ -50,6 +49,9 @@ export class ChatPage {
 
     this.chat1 = this.chatService.getDeepChat(this.eventoId);
 
+    this.messages = this.messageService
+    .getMessages(this.eventoId);
+
     this.viewMessages = this.messageService.mapListKeys<Message>(this.messages);
     this.viewMessages
       .subscribe((messages: Message[]) => {
@@ -59,8 +61,9 @@ export class ChatPage {
 
     //};
 
-    this.messages = this.messageService
-      .getMessages(this.eventoId);
+
+
+      /*
 
     this.userService
       .mapObjectKey<User>(this.userService.currentUser)
@@ -81,17 +84,15 @@ export class ChatPage {
               this.messages = this.messageService
                 .getMessages(this.eventoId);
 
-              doSubscription();
+           //   doSubscription();
 
-            } else {
-              doSubscription();
-            }
+            } 
 
           });
          
 
       });
-       
+       */
 
   }
 

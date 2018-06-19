@@ -4,25 +4,16 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireDatabase, AngularFireObject } from "angularfire2/database";
 import { User } from './../../models/user.model';
 import * as firebase from 'firebase/app';
-<<<<<<< HEAD
-
-@Injectable()
-export class UserProvider {
-=======
 import { BaseService } from '../base/base.service';
 
 @Injectable()
 export class UserProvider extends BaseService{
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
 
   currentUser: AngularFireObject<User>;
   userId: string;
 
   constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth) {
-<<<<<<< HEAD
-=======
     super();
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
     this.listenAuthState();
   }
 
@@ -38,14 +29,8 @@ export class UserProvider extends BaseService{
   }
 
   participar(idEvento: string): any{
-<<<<<<< HEAD
-    let part = {[this.getId()]: false};
-    console.log(part);
-    this.db.object(`/eventos/${idEvento}/participantes`).set(part);
-=======
     let part = {[this.getId()]: true};
     this.db.object(`/eventos/${idEvento}/participantes`).update(part);
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
   }
 
 
@@ -62,13 +47,8 @@ export class UserProvider extends BaseService{
     return this.db.object(`/usuarios/${uuid}`).set(user);
   }
 
-<<<<<<< HEAD
-
-
-=======
   atualizar(nome: JSON): Promise<void> {
     return this.db.object(`/usuarios/${this.getId()}`).update(nome);
   }
->>>>>>> a894633765b9a8b50022c345d578d549cbb0e2e8
 
 }
