@@ -13,15 +13,19 @@
 
         <ion-card>
           <img id ="img-evento" [src]="imagem"/>
-          <div class="card-title">{{evento.titulo}}</div>
-          <div class="card-subtitle" id="descricao">{{evento.descricao}}</div>
-          <div class="card-subtitle" id="local">{{evento.local}}</div>
-          <div class="card-subtitle" id="datahora">{{evento.data}} ás {{evento.horario}} horas</div>
-          <div class="card-subtitle" id="participantes">{{evento.qtde_participantes}} participantes</div>
+          <div class="card-title">{{evento.titulo}}
+          </div>
+          <div class="card-subtitle" id="descricao">{{evento.descricao}} <br/>
+            Local: {{evento.local}} <br/>
+            Data: {{evento.data}} <br/>
+            Horário: {{evento.horario}} horas. <br/>
+            Número de participantes: {{evento.qtde_participantes}}
+          </div>
+
         </ion-card>
-        <div text-center>    
-          <button ion-button block (click)="participar()">Participar</button>
+        <div text-center>
+          <button ion-button color="secondary" block (click)="participar()">Participar</button>
         </div>
-    
+
       </ion-content>
 </ion-content>

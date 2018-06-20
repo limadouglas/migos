@@ -13,16 +13,18 @@
 
   <ion-content class="card-background-page">
 
-  
+
     <ion-card>
       <img id ="img-evento" [src]="imagem"/>
-        <div class="card-title">{{evento.titulo}}</div>
+        <div class="card-title">{{evento.titulo}} <br>{{evento.local}}</div>
     </ion-card>
 
-    <div text-center>    
-      <button ion-button  (click)="anteriorEvento()" float-start><ion-icon name="arrow-dropleft"></ion-icon></button>
-      <button ion-button  (click)="infoEvento()"  id="info" margin-horizontal>Informações</button>
-      <button ion-button  (click)="proximoEvento()" float-end><ion-icon name="arrow-dropright"></ion-icon></button>
+    <div class="row">
+        <div class="col text-center">
+          <button ion-button  (click)="anteriorEvento()" ><ion-icon name="ios-arrow-back"></ion-icon></button>
+          <button ion-button  (click)="infoEvento()" >Informações</button>
+          <button ion-button  (click)="proximoEvento()" ><ion-icon name="ios-arrow-forward"></ion-icon></button>
+        </div>
     </div>
 
   </ion-content>
