@@ -4,7 +4,7 @@
     <button ion-button icon-only menuToggle start>
         <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>configuração</ion-title>
+    <ion-title>Configuração</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
     <ion-icon class="auth-icon" name="contact" color="primary"></ion-icon>
   </h1>
 
-  <form [formGroup]="usuarioForm" (ngSubmit)="atualizar(); $event.preventDefault()"> 
+  <form [formGroup]="usuarioForm" (ngSubmit)="atualizar(); $event.preventDefault()">
 
     <ion-item>
       <ion-input type="text" placeholder="Nome" formControlName="nome" text-center></ion-input>

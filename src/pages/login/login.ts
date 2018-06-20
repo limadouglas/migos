@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController, MenuController} from 'ionic-
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 
+
 import { User } from './../../models/user.model';
 import { UserProvider } from '../../providers/user/user';
 import { HomePage } from '../home/home';
@@ -13,6 +14,8 @@ import { HomePage } from '../home/home';
 })
 
 export class LoginPage {
+
+  slideData = [{ image: "assets/img/slider2.jpg" },{ image: "assets/img/slider1.jpg" },{ image: "assets/img/slider3.jpg" }]
 
   facebook = {
     loggedIn : false,
@@ -36,7 +39,7 @@ export class LoginPage {
 
 
   entrarFB = function() {
-    
+
     this.afauth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then((res) => {
 
@@ -74,6 +77,7 @@ export class LoginPage {
       buttons: ['Ok']
     }).present();
   }
+
 
 }
 

@@ -6,19 +6,35 @@
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
+    <img src="../assets/img/migos.png"/>
+
+    <ion-slides autoplay="5000" loop="true" speed="3000">
+        <ion-slide *ngFor="let slide of slideData">
+          <img src="{{slide.image}}" />
+        </ion-slide>
+      </ion-slides>
+
   <ion-row>
     <button ion-button icon-left color="primary" (click)="entrarFB()" *ngIf="!facebook.loggedIn">
       <ion-icon name="logo-facebook"></ion-icon>
-      Entrar com facebook
+      Entrar com Facebook
     </button>
   </ion-row>
-  <ion-row>
+
+  <!-- <ion-row>
     <button ion-button icon-left (click)="sairFB()">
       <ion-icon name="exit"></ion-icon>
       Deslogar
     </button>
-  </ion-row>
+      </ion-row>
+    -->
+
+
+    <ion-item text-center text-wrap><p>Não postaremos<b> nada</b> no Facebook.</p> <p>Ao continuar, você concorda com as <u>Políticas de privacidade</u> e <u>Termos de serviço</u>.</p></ion-item>
+
+
+
+
+
 </ion-content>

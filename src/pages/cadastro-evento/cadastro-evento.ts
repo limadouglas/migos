@@ -19,7 +19,7 @@ export class CadastroEventoPage {
   constructor(
     public alertCtrl: AlertController,
     public navCtrl: NavController,
-    public navParams: NavParams, 
+    public navParams: NavParams,
     public formBuilder: FormBuilder,
     public userProvider: UserProvider,
     public eventoProvider: EventoProvider,
@@ -30,7 +30,7 @@ export class CadastroEventoPage {
       titulo: ['', [Validators.required, Validators.minLength(1)]],
       descricao: ['', [Validators.required, Validators.minLength(5)]],
       local: ['', [Validators.required, Validators.minLength(5)]],
-      qtde_participantes: ['', [Validators.required, Validators.minLength(1)]],
+      qtde_participantes: ['', [Validators.required, Validators.min(3)]],
       data: ['', [Validators.required, Validators.minLength(1)]],
       horario: ['', [Validators.required, Validators.minLength(1)]],
     });
@@ -55,7 +55,7 @@ export class CadastroEventoPage {
           console.log('evento cadastrado!');
           this.navCtrl.setRoot(HomePage);
         });
-        
+
       }).catch((error: any) => {
         loading.dismiss();
         console.log(error);
@@ -77,7 +77,7 @@ export class CadastroEventoPage {
 
     return loading;
   }
-  
+
   private showAlert(message: string): void {
     this.alertCtrl.create({
       message: message,
