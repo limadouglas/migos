@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireDatabase } from "angularfire2/database";
 import { Evento } from '../../models/evento.model';
 import { FirebaseApp } from "angularfire2";
@@ -9,12 +8,11 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class EventoProvider {
   
-  public listaEventos;
+  public listaEventos = null;
   public indiceEvento: number;
 
   constructor(
     public db: AngularFireDatabase, 
-    public afAuth: AngularFireAuth, 
     public firebaseApp: FirebaseApp,
     
   ) {
@@ -44,16 +42,19 @@ export class EventoProvider {
     ).catch(()=>{return -1});
   }
 
+
   // retorna todos os eventos
   getEventos(): any{
     this.listaEventos = [];
     this.db.list<Evento>(`/eventos`).valueChanges().forEach(el => {
+        this.listaEventos = [];
         if(this.listaEventos.length===0){
           this.listaEventos = el;
         }else{
           this.listaEventos.push(el);
         }
       });    
+
   }
 
   getEventoId(id: number): any{
@@ -73,7 +74,7 @@ export class EventoProvider {
     if(this.indiceEvento <= 0){
       this.indiceEvento = this.listaEventos.length - 1;
     }else{
-      this.indiceEvento--
+      this.indiceEvento--;
     }
     return this.listaEventos[this.indiceEvento];
   }
@@ -82,7 +83,7 @@ export class EventoProvider {
     let meusEventos = [];
     console.log(this.listaEventos);
     this.listaEventos.forEach(el => {
-      if(el.participantes[id]){
+      if(el['participantes'][id]){
         meusEventos.push(el);
       }
     });

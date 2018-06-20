@@ -11,6 +11,7 @@ import { NavController, NavParams, MenuController } from 'ionic-angular';
 })
 export class EventoPage {
   public eventos;
+  public userId;
 
   constructor(
     public navCtrl: NavController, 
@@ -19,10 +20,16 @@ export class EventoPage {
     public eventoProvider: EventoProvider,
     public userProvider:UserProvider
   ) {
-    
     setTimeout(() => {
-      this.eventos = this.eventoProvider.meusEventos(this.userProvider.getId());
-    }, 600);
+
+      this.userId = this.userProvider.getId();
+      console.log('page: eventos.ts constructor');
+      console.log(this.userId);
+      setTimeout(() => {
+        this.eventos = this.eventoProvider.meusEventos(this.userId);
+      }, 600);
+
+    }, 500);
     
   }
 
