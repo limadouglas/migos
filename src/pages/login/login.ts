@@ -14,9 +14,10 @@ import { HomePage } from '../home/home';
 })
 
 export class LoginPage {
-
-  slideData = [{ image: "assets/img/slider2.jpg" },{ image: "assets/img/slider1.jpg" },{ image: "assets/img/slider3.jpg" }]
-
+  slideData = [{
+    image: "../assets/imgs/slider1.jpg" },
+    { image: "../assets/imgs/slider2.jpg" },
+    { image: "../assets/imgs/slider3.jpg" }]
   facebook = {
     loggedIn : false,
     name : '',
